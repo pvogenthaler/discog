@@ -16,16 +16,15 @@ services.factory('ApiFactory', ['$http', function($http) {
           reject({
             status: this.status,
             statusText: xhr.statusText
-          })
+          });
         }
       }
 
       xhr.onerror = function() {
-        console.log('onerror: ', xhr.status, shr.statusText)
         reject({
-        status: this.status,
-        statusText: xhr.statusText
-      });
+          status: this.status,
+          statusText: xhr.statusText
+        });
       }
       xhr.send();
     });
@@ -52,16 +51,15 @@ services.factory('ApiFactory', ['$http', function($http) {
           reject({
             status: this.status,
             statusText: xhr.statusText
-          })
+          });
         }
       }
 
       xhr.onerror = function() {
-        console.log('onerror: ', xhr.status, shr.statusText)
         reject({
-        status: this.status,
-        statusText: xhr.statusText
-      });
+          status: this.status,
+          statusText: xhr.statusText
+        });
       }
       xhr.send();
     });
@@ -77,6 +75,6 @@ services.factory('ApiFactory', ['$http', function($http) {
   return {
     searchArtists: searchArtists,
     retrieveAlbums: retrieveAlbums,
-  }
+  };
 
 }]);

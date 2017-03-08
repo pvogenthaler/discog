@@ -1,18 +1,21 @@
 <div ng-controller="ResultsCtrl" class="results">
+  <!-- search bar -->
   <div class="formAndButton">
     <form>
-      <input type="text" ng-model="searchTerm" my-enter="search(searchTerm)" placeholder="Enter an artist...">
+      <input type="text" ng-model="searchTerm" my-enter="search(searchTerm);" placeholder="Enter an artist...">
     </form>
-    <button ng-click="search(searchTerm)">Search</button>
+    <button ng-click="search(searchTerm);">Search</button>
   </div>
+  <!-- artists -->
   <div class="artistsContainer">
     <div ng-repeat="artist in curSearch track by $index">
-      <h2 ng-click="showAlbums = !showAlbums; retrieveAlbums(artist.id)" class="artist">{{artist.name}}</h2>
+      <h2 ng-click="showAlbums = !showAlbums; retrieveAlbums(artist.id);" class="artist">{{artist.name}}</h2>
+      <!-- albums -->
       <div ng-show="showAlbums">
         <div ng-repeat="album in albumResults[artist.id]" class="albums">
           <h3>{{album.title}}</h3>
         </div>
-        <h5 class="more" ng-init="pageNum=0;" ng-click="pageNum = pageNum + 1; retrieveAlbums(artist.id, pageNum)">more...</h5>
+        <h5 class="more" id="{{'id' + artist.id.toString()}}" ng-init="pageNum=0;" ng-click="pageNum = pageNum + 1; retrieveAlbums(artist.id, pageNum)">more...</h5>
       </div>
     </div>
   </div>
