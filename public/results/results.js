@@ -68,3 +68,7 @@ results.controller('ResultsCtrl', ['$scope', '$window', 'ApiFactory', 'DataFacto
   }
 
 }]);
+
+results.directive('myEnter', ['DirectiveFactory', function(DirectiveFactory) {
+  return DirectiveFactory.myEnter;
+}]);

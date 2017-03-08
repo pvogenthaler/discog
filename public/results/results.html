@@ -1,13 +1,15 @@
 <div ng-controller="ResultsCtrl">
   <form>
-    Search Artist:<br>
-    <input type="text" ng-model="searchTerm">
+    <input type="text" ng-model="searchTerm" my-enter="search(searchTerm)" placeholder="Search for an artist...">
   </form>
   <button ng-click="search(searchTerm)">Search</button>
   <div ng-repeat="artist in curSearch track by $index">
     <h2 ng-click="show = !show; retrieveAlbums(artist.id)">{{artist.name}}</h2>
-    <div ng-show="show" ng-repeat="album in albumResults[artist.id]">
-      <h3>{{album.title}}</h3>
+    <div ng-show="show">
+      <div ng-repeat="album in albumResults[artist.id]">
+        <h3>{{album.title}}</h3>
+      </div>
+      <h5>more...</h5>
     </div>
   <div>
 </div>

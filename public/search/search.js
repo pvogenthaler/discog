@@ -35,3 +35,7 @@ search.controller('SearchCtrl', ['$scope', '$window', 'ApiFactory', 'DataFactory
   }
 
 }]);
+
+search.directive('myEnter', ['DirectiveFactory', function(DirectiveFactory) {
+  return DirectiveFactory.myEnter;
+}]);

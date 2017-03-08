@@ -5,6 +5,7 @@ var app = angular.module('discog', [
   'discog.results',
   'discog.apiFactory',
   'discog.dataFactory',
+  'discog.directiveFactory',
 ]);
 
 app.config(function($routeProvider) {

@@ -1,9 +1,8 @@
-<div ng-controller="SearchCtrl">
+<div ng-controller="SearchCtrl" class="search">
 
   <h1>Discog</h1>
   <form>
-    Search Artist:<br>
-    <input type="text" ng-model="searchTerm">
+    <input type="text" ng-model="searchTerm" my-enter="search(searchTerm)" placeholder="Search for an artist...">
   </form>
   <button ng-click="search(searchTerm)">Search</button>
 
