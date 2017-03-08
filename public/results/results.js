@@ -18,10 +18,16 @@ results.controller('ResultsCtrl', ['$scope', '$window', 'ApiFactory', 'DataFacto
       // update DataFactory with album results
       .then(function(res) {
         $scope.$apply(function() {
-          $scope.albumResults[artistMbid] = res.reduce(function(acc, cur, i) {
-            acc[i] = cur;
-            return acc;
-          }, {});
+          if (!res.length) {
+            $scope.albumResults[artistMbid] = {
+              0: {title: "No available albums"}
+            };
+          } else {
+            $scope.albumResults[artistMbid] = res.reduce(function(acc, cur, i) {
+              acc[i] = cur;
+              return acc;
+            }, {});
+          }
           DataFactory.updateAlbumsResults(artistMbid, $scope.albumResults[artistMbid]);
         });
       })
@@ -35,8 +41,12 @@ results.controller('ResultsCtrl', ['$scope', '$window', 'ApiFactory', 'DataFacto
   $scope.searchResults = {};
   $scope.search = function(searchTerm) {
 
+    if (!searchTerm) {
+      return;
+    }
+
     // if we've already used searchTerm, use cache
-    if (DataFactory.data.searchResults[searchTerm]) {
+    else if (DataFactory.data.searchResults[searchTerm]) {
       DataFactory.updateCurSearch(DataFactory.data.searchResults[searchTerm]);
       $scope.curSearch = DataFactory.data.curSearch;
 

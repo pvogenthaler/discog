@@ -5,8 +5,11 @@ search.controller('SearchCtrl', ['$scope', '$window', 'ApiFactory', 'DataFactory
 
   $scope.search = function(searchTerm) {
 
+    if (!searchTerm) {
+      return;
+
     // if we've already used searchTerm, use cache
-    if (DataFactory.data.searchResults[searchTerm]) {
+    } else if (DataFactory.data.searchResults[searchTerm]) {
       DataFactory.updateCurSearch(searchTerm, DataFactory.data.searchResults[searchTerm]);
 
     } else {
