@@ -38,11 +38,12 @@ services.factory('ApiFactory', ['$http', function($http) {
 
   };
 
-  var retrieveAlbums = function (artistMbid) {
+  var retrieveAlbums = function (artistMbid, page) {
+    page = page || 0;
 
     return new Promise(function (resolve, reject) {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'v1/api/albums/?artist_mbid=' + artistMbid, false);
+      xhr.open('GET', 'v1/api/albums/?artist_mbid=' + artistMbid + '&page=' + page, false);
 
       xhr.onload = function() {
         if (this.status === 200) {

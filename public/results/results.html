@@ -12,7 +12,7 @@
         <div ng-repeat="album in albumResults[artist.id]" class="albums">
           <h3>{{album.title}}</h3>
         </div>
-        <h5 class="more">more...</h5>
+        <h5 class="more" ng-init="pageNum=0;" ng-click="pageNum = pageNum + 1; retrieveAlbums(artist.id, pageNum)">more...</h5>
       </div>
     </div>
   </div>
