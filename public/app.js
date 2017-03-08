@@ -23,3 +23,7 @@ app.config(function($routeProvider) {
       redirectTo: '/search'
     });
 });
+
+app.directive('myEnter', ['DirectiveFactory', function(DirectiveFactory) {
+  return DirectiveFactory.myEnter;
+}]);

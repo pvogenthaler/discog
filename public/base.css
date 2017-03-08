@@ -13,15 +13,7 @@ html, body, .view {
 }
 
 html {
-  background-image: url('https://static.pexels.com/photos/30222/pexels-photo-30222.jpg');
-  background-repeat: repeat-y;
-  background-size: cover;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-color: hsla(0,0%,0%,0.50);
-  background-blend-mode: overlay;
+
 }
 
 form {
@@ -76,6 +68,17 @@ button:hover {
   cursor: pointer;
 }
 
+button:focus {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+button:active {
+  box-shadow: 0 0 5px 1px #969696;
+}
+
 /* search */
 
 .title {
@@ -84,27 +87,39 @@ button:hover {
 }
 
 .search {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-image: url('https://static.pexels.com/photos/30222/pexels-photo-30222.jpg');
+  background-repeat: repeat-y;
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-color: hsla(0,0%,0%,0.50);
+  background-blend-mode: overlay;
 }
 
 /* results */
 
 .results {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-color: hsla(0,0%,0%,0.75);
 
-.results form {
-  /*margin: 5px;*/
 }
 
 .results button {
@@ -122,17 +137,25 @@ button:hover {
 }
 
 .artistsContainer {
-  width: 15%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 65px;
+  width: 30%;
+  padding: 65px 10px 0 10px;
+}
+
+.artistsContainer div {
+  width: 100%;
 }
 
 .artist {
   margin: 20px auto 20px auto;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 15px;
+  border-radius: 3px;
 }
 
 .artist:hover {
   cursor: pointer;
+}
+
+.albums, .more {
+  padding-left: 25px;
 }

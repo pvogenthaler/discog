@@ -41,6 +41,7 @@ results.controller('ResultsCtrl', ['$scope', '$window', 'ApiFactory', 'DataFacto
   $scope.searchResults = {};
   $scope.search = function(searchTerm) {
 
+    // no api call without searchTerm
     if (!searchTerm) {
       return;
     }
@@ -77,8 +78,4 @@ results.controller('ResultsCtrl', ['$scope', '$window', 'ApiFactory', 'DataFacto
     }
   }
 
-}]);
-
-results.directive('myEnter', ['DirectiveFactory', function(DirectiveFactory) {
-  return DirectiveFactory.myEnter;
 }]);
