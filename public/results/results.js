@@ -10,20 +10,20 @@ results.controller('ResultsCtrl', ['$scope', '$window', 'ApiFactory', 'DataFacto
   $scope.retrieveAlbums = function(artistMbid) {
     // if we've already used searchTerm, use cache
     if (DataFactory.data.albumsResults[artistMbid]) {
-      $scope.albumResults = DataFactory.data.albumsResults[artistMbid];
+      $scope.albumResults = DataFactory.data.albumsResults;
 
     } else {
       // execute album retrieval
       ApiFactory.retrieveAlbums(artistMbid)
-
       // update DataFactory with album results
       .then(function(res) {
-        $scope.albumResults[artistMbid] = res.reduce(function(acc, cur, i) {
-          acc[i] = cur;
-          return acc;
-        }, {});
-        DataFactory.updateAlbumsResults(artistMbid, $scope.albumResults[artistMbid]);
-
+        $scope.$apply(function() {
+          $scope.albumResults[artistMbid] = res.reduce(function(acc, cur, i) {
+            acc[i] = cur;
+            return acc;
+          }, {});
+          DataFactory.updateAlbumsResults(artistMbid, $scope.albumResults[artistMbid]);
+        });
       })
       .catch(function(err) {
         console.log('error on retrieving artist\'s albums: ', err);
@@ -34,7 +34,6 @@ results.controller('ResultsCtrl', ['$scope', '$window', 'ApiFactory', 'DataFacto
 
   $scope.searchResults = {};
   $scope.search = function(searchTerm) {
-    console.log('searching for ', searchTerm);
 
     // if we've already used searchTerm, use cache
     if (DataFactory.data.searchResults[searchTerm]) {
