@@ -1,5 +1,6 @@
 var servives = angular.module('discog.directiveFactory', []);
 
+// press enter to search
 services.factory('DirectiveFactory', function() {
   var myEnter = function (scope, element, attrs) {
     element.bind("keydown keypress", function (event) {
