@@ -1,0 +1,18 @@
+{
+  "name": "discog",
+  "version": "1.0.0",
+  "description": "Web application to browse artist discographies",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-resource": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "express": "^4.14.0",
+    "nodebrainz": "^2.1.1"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.2"
+  },
+  "scripts": {
+    "start": "coffee server.coffee"
+  }
+}
